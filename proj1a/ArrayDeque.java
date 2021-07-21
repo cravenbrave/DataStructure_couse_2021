@@ -3,7 +3,7 @@ public class ArrayDeque<T> {
     private int size;
     private int nextFirst;
     private int nextLast;
-    final int INITIAL_SIZE = 8;
+    private final int INITIAL_SIZE = 8;
     private int capacity;
 
     /** Creates an empty list. */
@@ -15,15 +15,15 @@ public class ArrayDeque<T> {
         capacity = 8;
     }
 
-    private void resize(int capacity){
-        T[] temp = (T[])new Object[capacity];
+    private void resize(int capacity) {
+        T[] temp = (T[]) new Object[capacity];
 
         //copy the old array to next array with correct sequence
         //first item at temp[0], second at temp[1] ...
-        for(int i = 0; i < size; i++){
-            if(nextFirst == items.length - 1){
+        for (int i = 0; i < size; i++) {
+            if (nextFirst == items.length - 1) {
                 nextFirst = 0;
-            }else{
+            } else {
                 nextFirst++;
             }
             temp[i] = items[nextFirst];
@@ -32,14 +32,14 @@ public class ArrayDeque<T> {
 
     }
 
-    private void incrArray(){
+    private void incrArray() {
         capacity *= 2;
         resize(capacity);
         nextFirst = capacity - 1;
         nextLast = size;
     }
-    public void addFirst(T item){
-        if(nextLast == nextFirst || nextFirst < 0){
+    public void addFirst(T item) {
+        if (nextLast == nextFirst || nextFirst < 0) {
             incrArray();
         }
         size++;
@@ -47,8 +47,8 @@ public class ArrayDeque<T> {
         nextFirst--;
     }
 
-    public void addLast(T item){
-        if(nextFirst == nextLast || nextLast < 0){
+    public void addLast(T item) {
+        if (nextFirst == nextLast || nextLast < 0) {
             incrArray();
         }
         size++;
@@ -56,28 +56,28 @@ public class ArrayDeque<T> {
         nextLast++;
     }
 
-    public boolean isEmpty(){
-        if(size == 0){
+    public boolean isEmpty() {
+        if (size == 0) {
             return true;
         }
         return false;
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
     /* return the size of array */
-    private int arraySize(){
+    private int arraySize() {
         return items.length;
     }
 
-    public void printDeque(){
+    public void printDeque() {
         int ptr = nextFirst;
-        for(int i = 0; i < size; i++){
-            if(ptr == items.length - 1){
+        for (int i = 0; i < size; i++) {
+            if (ptr == items.length - 1) {
                 ptr = 0;
-            }else{
+            } else {
                 ptr++;
             }
             System.out.print(items[ptr] + " ");
@@ -86,15 +86,15 @@ public class ArrayDeque<T> {
     }
 
     /* return true if the usage ratio is less than 25% */
-    private boolean isLowEff(){
-        if(size * 4 >= items.length || items.length < 16 ){
+    private boolean isLowEff() {
+        if (size * 4 >= items.length || items.length < 16 ) {
             return false;
         }
         return true;
     }
 
     /* if the usage ratio is less than 25%, resize the array*/
-    private void decrArray(){
+    private void decrArray() {
         capacity = size * 4;
 
         //add size back to make sure the resize copy size number is correct
@@ -107,20 +107,20 @@ public class ArrayDeque<T> {
         nextLast = size + 1;
     }
 
-    public T removeFirst(){
+    public T removeFirst() {
         //if list is empty,return null
-        if(isEmpty()){
+        if (isEmpty()) {
             return null;
         }
 
-        //decrease the size to check whether it is low efficient, if true, decrease the length of array
+        //check whether it is low efficient, if true decreases the length of array
         size--;
-        if(isLowEff()){
+        if (isLowEff()) {
             decrArray();
         }
 
         //if it at the end, reset the nextFirst
-        if(nextFirst == items.length - 1){
+        if (nextFirst == items.length - 1) {
             nextFirst = -1;
         }
         T temp = items[nextFirst + 1];
@@ -134,24 +134,24 @@ public class ArrayDeque<T> {
         return temp;
     }
 
-    public T removeLast(){
-        if(isEmpty()){
+    public T removeLast() {
+        if (isEmpty()) {
             return null;
         }
 
         size--;
-        if(isLowEff()){
+        if (isLowEff()) {
             decrArray();
         }
 
         T temp;
 
         //if array is not resize yet,and nextLast is not updated once
-        if(nextLast == 0){
-           temp = items[INITIAL_SIZE - 1];
-           nextLast = INITIAL_SIZE - 1;
-           items[INITIAL_SIZE - 1] = null;
-        }else{
+        if (nextLast == 0) {
+            temp = items[INITIAL_SIZE - 1];
+            nextLast = INITIAL_SIZE - 1;
+            items[INITIAL_SIZE - 1] = null;
+        } else {
             temp = items[nextLast - 1];
             items[nextLast - 1] = null;
             nextLast--;
@@ -160,29 +160,29 @@ public class ArrayDeque<T> {
 
     }
 
-    public T get(int index){
-        if(index >= size || index < 0 || size == 0){
+    public T get(int index) {
+        if (index >= size || index < 0 || size == 0) {
             return null;
         }
-        if(index == 0){
-            if(nextFirst == items.length - 1){
+        if (index == 0) {
+            if (nextFirst == items.length - 1) {
                 return items[0];
-            }else{
+            } else {
                 return items[nextFirst + 1];
             }
         }
 
         int temp;
-        if(nextFirst == items.length - 1){
+        if (nextFirst == items.length - 1) {
             temp = 0;
-        }else{
+        } else {
             temp = nextFirst + 1;
         }
 
-        for(int i = 0; i < index; i++){
-            if(temp == items.length - 1){
+        for (int i = 0; i < index; i++) {
+            if (temp == items.length - 1) {
                 temp = 0;
-            }else{
+            } else {
                 temp++;
             }
         }
@@ -191,7 +191,7 @@ public class ArrayDeque<T> {
     }
 
 
-    public static void main(String[] args){
+//    public static void main(String[] args){
         //common case
 //        ArrayDeque<Integer> test = new ArrayDeque<>();
 //        test.addFirst(1);
@@ -279,5 +279,5 @@ public class ArrayDeque<T> {
 //        test4.addFirst(33);
 //        test4.printDeque();
 
-    }
+//    }
 }
