@@ -12,7 +12,7 @@ public class ArrayDequeBackup<T> {
         size = 0;
         nextFirst = INITIAL_SIZE - 1;
         nextLast = 0;
-        capacityUpdate= 8;
+        capacityUpdate = 8;
     }
 
     private void resize(int capacity) {
