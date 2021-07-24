@@ -73,12 +73,21 @@ public class IntListTest {
 
     //test the basic function of reverse
     @Test
-    public void testReverse1() {
+    public void testReverse() {
         IntList A = IntList.of(1, 2, 3);
         IntList expected = IntList.of(3, 2, 1);
 
         IntList result = IntList.reverse(A);
         assertEquals(expected, result);
+
+        //test whether the method is destructive
+        IntList oldA = IntList.of(1, 2, 3);
+        assertNotEquals(A, oldA);
+
+        //test whether the method handles a null input properly
+        IntList B = IntList.of();
+        IntList expected2 = IntList.of();
+        assertEquals(expected2, B);
     }
 
     //test whether the method is destructive

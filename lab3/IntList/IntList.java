@@ -126,10 +126,10 @@ public class IntList {
 
     /**
      * Returns the reverse of the given IntList.
-     * This method is destructive. If given null
+     * This method is non-destructive. If given null
      * as an input, returns null.
      */
-    public static IntList reverse(IntList A) {
+    public static IntList reverseNonDestructive(IntList A) {
         if (A == null) {
             return null;
         }
@@ -138,7 +138,30 @@ public class IntList {
             A = A.rest;
             result = new IntList(A.first, result);
         }
+//        A.rest = of(1);
         return result;
+    }
+
+    /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null
+     * as an input, returns null.
+     */
+    public static IntList reverse(IntList A) {
+        if (A == null) {
+            return null;
+        }
+        IntList prev, next;
+        prev = null;
+        next = null;
+
+        while(A != null){
+            next = A.rest;
+            A.rest = prev;
+            prev = A;
+            A = next;
+        }
+        return prev;
     }
 
 
@@ -278,7 +301,7 @@ public class IntList {
 
     public static void main(String[] args){
         IntList test = of(1, 2, 3);
-        IntList test2 = reverse(test);
+        IntList test2 = reverseNonDestructive(test);
 
         System.out.println();
     }
