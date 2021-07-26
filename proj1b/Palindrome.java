@@ -2,7 +2,7 @@ public class Palindrome {
     /*
     Return a Deque where the characters appear in the same order as in the String.
      */
-    public Deque<Character> wordToDeque(String word){
+    public Deque<Character> wordToDeque(String word) {
         if (word == null) {
             return null;
         }
@@ -64,7 +64,7 @@ public class Palindrome {
             return false;
         }
 
-       return isPalindromeHelper(wordToDeque(word), cc);
+        return isPalindromeHelper(wordToDeque(word), cc);
     }
 
     //Overload method, for helping testing palindrome off by one
