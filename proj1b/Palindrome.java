@@ -75,6 +75,9 @@ public class Palindrome {
 
         char first = word.removeFirst();
         char last = word.removeLast();
+
+        //call offByOne.java equalChars method to check whether their
+        //difference is 1
         if (!cc.equalChars(first, last)) {
             return false;
         }
