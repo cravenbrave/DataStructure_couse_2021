@@ -22,6 +22,15 @@ public class TestArrayDequeGold {
         }
 
 //        sad.printDeque();
+//        for (int i = 0; i < 20; i++) {
+//            System.out.print(sad.removeLast() + " ");
+//        }
+//        System.out.println();
+//        System.out.println("---------------");
+        for (int i = 0; i < 20; i++) {
+            System.out.print(ads.get(i) + " ");
+        }
+        System.out.println();
         while (!isError && !sad.isEmpty() && !ads.isEmpty()) {
             double numberBetweenZeroAndOne = StdRandom.uniform();
 
@@ -33,6 +42,9 @@ public class TestArrayDequeGold {
             } else {
                 Integer sadL = sad.removeLast();
                 Integer adsL = ads.removeLast();
+                if (sadL == null) {
+                    continue;
+                }
                 assertEquals("addLast(" + sad.get(sad.size() - 1) +
                         ")\naddLast(" + adsL + ")\nremoveLast()", adsL, sadL);
             }
