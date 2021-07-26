@@ -27,10 +27,10 @@ public class TestArrayDequeGold {
 //        }
 //        System.out.println();
 //        System.out.println("---------------");
-        for (int i = 0; i < 20; i++) {
-            System.out.print(ads.get(i) + " ");
-        }
-        System.out.println();
+//        for (int i = 0; i < 20; i++) {
+//            System.out.print(ads.get(i) + " ");
+//        }
+//        System.out.println();
         while (!isError && !sad.isEmpty() && !ads.isEmpty()) {
             double numberBetweenZeroAndOne = StdRandom.uniform();
 
