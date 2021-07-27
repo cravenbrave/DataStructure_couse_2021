@@ -34,20 +34,21 @@ public class TestArrayDequeGold {
         while (!isError && !sad.isEmpty() && !ads.isEmpty()) {
             double numberBetweenZeroAndOne = StdRandom.uniform();
 
-            if (numberBetweenZeroAndOne < 0.5) {
+//            if (numberBetweenZeroAndOne < 0.5) {
                 Integer sadF = sad.removeFirst();
                 Integer adsF = ads.removeFirst();
                 assertEquals("addFirst(" + sad.get(0) + ")\naddFirst("
                         + sadF +")\nremoveFirst()", adsF, sadF);
-            } else {
-                Integer sadL = sad.removeLast();
-                Integer adsL = ads.removeLast();
-                if (sadL == null) {
-                    continue;
-                }
-                assertEquals("addLast(" + sad.get(sad.size() - 1) +
-                        ")\naddLast(" + adsL + ")\nremoveLast()", adsL, sadL);
-            }
+//            } else {
+//                Integer sadL = sad.removeLast();
+//                if (sadL == null) {
+//                    continue;
+//                }
+//                Integer adsL = ads.removeLast();
+//
+//                assertEquals("addLast(" + sad.get(sad.size() - 1) +
+//                        ")\naddLast(" + adsL + ")\nremoveLast()", adsL, sadL);
+//            }
         }
     }
 
