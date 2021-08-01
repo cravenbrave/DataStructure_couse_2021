@@ -4,27 +4,29 @@ ArrayDeque:
 
 Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
 
-A: 
+A: plusOne and minusOne method. More elegant and convenient, save much time. 
 
 Q: What's something you felt proud of in your code, if anything?
 
-A:
+A: Spent a lot of time thinking how to print the array orderly. But had many edge cases without plusOne and minusOne methods.
+
+Also, I have another private method: isEfficient to check the resizing timing.
 
 Q: What's something that was particularly inelegant in your code, if anything?
 
-A:
+A: Many edge cases. Resizing is not really well.
 
 Q: What did you learn by talking to your partner about writing ArrayDeque?
 
-A:
+A: Online student...
 
 Q: What do you wish you would have known before writing ArrayDeque, if anything?
 
-A:
+A: Write plusOne and minusOne private method.
 
 Q: If you wrote ArrayDeque again, what would you do differently, if anything?
 
-A:
+A: Write plusOne and minusOne private method, with much less edge cases.
 
 -----
 
@@ -32,27 +34,27 @@ LinkedListDeque:
 
 Q: Give an example of at least one idea from the staff solution that would have made your solution better (if any).
 
-A: 
+A: Online students, no chance to see the staff solution.
 
 Q: What's something you felt proud of in your code, if anything?
 
-A:
+A: getRecursiveHelper function. This is my first time, I wrote a recursive method by myself in such quick and elegant way. 
 
 Q: What's something that was particularly inelegant in your code, if anything?
 
-A:
+A: Not really.
 
 Q: What did you learn by talking to your partner about writing LinkedListDeque?
 
-A:
+A: Online student, no chance to talk with my partner.
 
 Q: What do you wish you would have known before writing LinkedListDeque, if anything?
 
-A:
+A: Single sentinel circle node. 
 
 Q: If you wrote LinkedListDeque again, what would you do differently, if anything?
 
-A:
+A: Nope.
 
 -----
 
@@ -60,4 +62,4 @@ Meta:
 
 Q: Did you like this design review process? Anything we should do differently next time?
 
-A: 
+A: So sad being an online student 😂
