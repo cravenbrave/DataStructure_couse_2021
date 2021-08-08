@@ -59,7 +59,6 @@ public class GuitarString {
     /* Return the double at the front of the buffer. */
     public double sample() {
         //Return the correct thing.
-        tic();
         return buffer.peek();
     }
 }
