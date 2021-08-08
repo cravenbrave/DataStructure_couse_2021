@@ -2,13 +2,13 @@ package synthesizer;
 
 import java.util.Iterator;
 
-public class test<T> implements BoundedQueue<T> {
+public class Test<T> implements BoundedQueue<T> {
     private int capacity;
     private int size;
     private int first, last;
     private T[] array;
 
-    public test() {
+    public Test() {
         capacity = 4;
         size = 0;
         last = 0;
@@ -61,8 +61,8 @@ public class test<T> implements BoundedQueue<T> {
     }
 
     public static void main(String[] args) {
-        test<Double> tt = new test<>();
-        boolean is = tt.isEmpty() ;      //
+        Test<Double> tt = new Test<>();
+        boolean is = tt.isEmpty();      //
         tt.enqueue(9.3);   // 9.3
         tt.enqueue(15.1);  // 9.3  15.1
         tt.enqueue(31.2);   // 9.3  15.1  31.2
